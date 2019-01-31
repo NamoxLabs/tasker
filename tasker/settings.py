@@ -93,12 +93,12 @@ else:
 if bool(os.getenv('DOCKER_CONTAINER')):
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.pyscopg2',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'tasker',
             'USER': 'root',
             'PASSWORD': 'tasker',
             'HOST': POSTGRES_HOST,
-            'PORT': '3306',
+            'PORT': '5432',
         }
     }
 else:
@@ -141,4 +141,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/static/'
+STATIC_ROOT = 'tasker/static/'
