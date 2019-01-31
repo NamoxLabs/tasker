@@ -81,7 +81,28 @@ DATABASES = {
     }
 }
 """
-DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL', 'dummy'))}
+
+if os.getenv('DOCKER_CONTAINER'):
+    POSTGRES_HOST = 'db'
+else:
+    POSTGRES_HOST = 'localhost'
+    #POSTGRES_HOST = '127.0.0.1'
+
+# Database
+# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+if bool(os.getenv('DOCKER_CONTAINER')):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.pyscopg2',
+            'NAME': 'tasker',
+            'USER': 'root',
+            'PASSWORD': 'tasker',
+            'HOST': POSTGRES_HOST,
+            'PORT': '3306',
+        }
+    }
+else:
+    DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL', 'dummy'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -120,3 +141,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
