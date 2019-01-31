@@ -1,0 +1,9 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+Django = "==1.11.18"
+dj-database-url = "==0.5.0"
+uWSGI = "==2.0.17.1"

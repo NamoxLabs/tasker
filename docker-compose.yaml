@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    ports:
+      - '127.0.0.1:5432:5432'
+    environment:
+      - POSTGRES_DB=tasker
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=tasker
+  web:
+    image: tasker:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        STATIC_URL: '/static/'
+    container_name: engine_container
+    command: python3 manage.py runserver 0.0.0.0:9099
+    volumes:
+      - .:/app
+    ports:
+      - "9099:9099"
+    environment:
+      - SECRET_KEY=((p*97yths_mehy9ucbg_x8qe92)w3@an8s*ro*e2f^6h4x!8w
+      - DATABASE_URL=postgres://dmkjhsmbtetego:dfad92fcead43d6300f055ab5eaf0893014563ea12cb0e80cdbc277e40cfaae6@ec2-79-125-4-96.eu-west-1.compute.amazonaws.com:5432/d1hfdiaamt8tst
+      - DOCKER_CONTAINER=True
+    depends_on:
+      - db

@@ -1,0 +1,9 @@
+.vscode
+
+venv
+/venv
+
+db.sqlite
+
+/node_modules
+node_modules
