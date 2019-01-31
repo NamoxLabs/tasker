@@ -1,2 +1,2 @@
 release: python3 manage.py migrate --no-input
-web: uwsgi tasker/wsgi/uswgi.ini
+web: uwsgi tasker/wsgi/uwsgi.ini

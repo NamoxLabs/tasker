@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
-
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,7 +26,7 @@ SECRET_KEY = '8-33k9d(v%e(k%z6^(+e7xbj%)))pwpo35n#%y95n%9t*37dh*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://tasker-dev.herokuapp.com', 'localhost', '0.0.0.0', '127.0.0.1']
 
 
 # Application definition
