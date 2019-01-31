@@ -102,7 +102,8 @@ if bool(os.getenv('DOCKER_CONTAINER')):
         }
     }
 else:
-    DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL', 'dummy'))}
+    pass
+    #DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL', 'dummy'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -141,5 +142,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 #STATIC_URL = '/static/'
-STATIC_URL = 'tasker/static/'
-STATIC_ROOT = 'tasker/static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
