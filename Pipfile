@@ -6,4 +6,5 @@ name = "pypi"
 [packages]
 Django = "==1.11.18"
 dj-database-url = "==0.5.0"
+"psycopg2-binary" = "==2.7.5"
 uWSGI = "==2.0.17.1"
